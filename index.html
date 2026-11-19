@@ -6,20 +6,19 @@
   <meta name="theme-color" content="#241a16">
   <title>Ali &amp; Rehab | Engagement Invitation</title>
 
-  <!-- الخط المستخدم في الموقع -->
+  <!-- تحميل الخط -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    /* الألوان الأساسية */
+    /* الألوان والإعدادات العامة */
     :root {
       --gold: #d2b77d;
       --cream: #f5ebd8;
       --dark: #211815;
     }
 
-    /* التنسيق الأساسي للصفحة */
     * {
       box-sizing: border-box;
     }
@@ -35,28 +34,19 @@
       font: inherit;
     }
 
-    /* المساحة الرئيسية للدعوة */
+    /* صورة الباب ثابتة قبل فتح الدعوة وبعده */
     .experience {
       min-height: 100vh;
       min-height: 100svh;
       position: relative;
       isolation: isolate;
       overflow: hidden;
-      background: #241c18;
-    }
-
-    /* رابط صورة السلم من الداخل */
-    .palace {
-      position: absolute;
-      inset: 0;
       background:
-        linear-gradient(#1e1713a8, #20181470 42%, #1b1411ad),
-        url("palace-interior.jpg") center 43% / cover;
-      transform: scale(1.04);
-      transition: transform 2.2s ease;
+        linear-gradient(#160e0870, #160e0844 42%, #160e0877),
+        url("images/WhatsApp Image 2026-11-19 at 8.05.14 PM.jpeg") center / cover fixed;
     }
 
-    /* إخفاء تفاصيل الدعوة لحد ما الباب يتفتح */
+    /* الدعوة تكون مخفية قبل الضغط */
     .reveal {
       position: relative;
       z-index: 1;
@@ -69,10 +59,10 @@
       text-align: center;
       opacity: 0;
       transform: translateY(18px) scale(.985);
-      transition: opacity 1.2s ease .85s, transform 1.2s ease .85s;
+      transition: opacity 1.2s ease .3s, transform 1.2s ease .3s;
     }
 
-    /* صندوق الصورة والدعوة */
+    /* صندوق محتوى الدعوة */
     .content {
       width: min(560px, 100%);
       padding: 20px;
@@ -82,18 +72,18 @@
       box-shadow: 0 20px 80px #100a08a8;
     }
 
-    /* إطار صورة علي ورحاب */
+    /* إطار صورة العروسين المستطيل */
     .portrait-wrap {
-      width: clamp(160px, 38vh, 230px);
+      width: min(300px, 78vw);
       aspect-ratio: 4 / 5;
       margin: 0 auto 12px;
-      padding: 8px;
+      padding: 7px;
       background: linear-gradient(135deg, #f4e2b5, #886438 35%, #e1c27d 55%, #6f4b28);
       box-shadow: 0 8px 35px #080605a8;
-      clip-path: polygon(50% 0, 92% 9%, 100% 42%, 92% 87%, 50% 100%, 8% 87%, 0 42%, 8% 9%);
+      border: 1px solid #f0d69c;
     }
 
-    /* رابط صورة علي ورحاب */
+    /* صورة علي ورحاب */
     .portrait {
       width: 100%;
       height: 100%;
@@ -103,7 +93,7 @@
       filter: sepia(.12) contrast(1.03);
     }
 
-    /* الزخرفة وأسماء العروسين */
+    /* الزخرفة أعلى الأسماء */
     .ornament {
       font-family: serif;
       color: var(--gold);
@@ -112,6 +102,7 @@
       margin: 0 0 4px;
     }
 
+    /* أسماء العروسين */
     .names {
       margin: 2px 0 8px;
       font-size: clamp(43px, 10vw, 66px);
@@ -121,13 +112,14 @@
       text-shadow: 0 3px 18px #1b0e0b;
     }
 
+    /* القلب بين الاسمين */
     .heart {
       font-size: 22px;
       color: #e3c581;
       margin: 0 8px;
     }
 
-    /* نص الدعوة */
+    /* رسالة الدعوة */
     .tagline {
       font-size: 20px;
       line-height: 1.5;
@@ -136,7 +128,12 @@
       color: #f4ead8;
     }
 
-    /* شكل عداد الوقت */
+    /* كل جملة تظهر في سطر مستقل */
+    .tagline span {
+      display: block;
+    }
+
+    /* عداد الوقت */
     .countdown {
       display: flex;
       justify-content: center;
@@ -170,7 +167,7 @@
       color: #e4d2af;
     }
 
-    /* تفاصيل التاريخ والمكان */
+    /* التاريخ والمكان */
     .event {
       display: flex;
       justify-content: center;
@@ -200,7 +197,7 @@
       border-right: 1px solid #d2b77d99;
     }
 
-    /* شكل كارت الخريطة */
+    /* بطاقة رابط الخريطة */
     .location-card {
       display: flex;
       align-items: center;
@@ -217,13 +214,12 @@
       transition: transform .25s, background .25s;
     }
 
-    /* حركة بسيطة للكارت عند المرور عليه */
     .location-card:hover {
       transform: translateY(-3px);
       background: #3b2d21;
     }
 
-    /* شكل رسمة الخريطة داخل الكارت */
+    /* رسمة الخريطة */
     .map-art {
       position: relative;
       flex: 0 0 108px;
@@ -238,7 +234,6 @@
         repeating-linear-gradient(90deg, transparent 0 23px, #c7b995 24px 25px, transparent 26px 46px);
     }
 
-    /* كتابة OUR LOCATION على رسمة الخريطة */
     .map-art::after {
       content: "OUR LOCATION";
       position: absolute;
@@ -251,7 +246,7 @@
       letter-spacing: 1px;
     }
 
-    /* دبوس الموقع على الخريطة */
+    /* دبوس الموقع */
     .map-pin {
       position: absolute;
       z-index: 1;
@@ -266,7 +261,6 @@
       box-shadow: 0 2px 7px #24140f99;
     }
 
-    /* نقطة وسط دبوس الموقع */
     .map-pin::after {
       content: "";
       position: absolute;
@@ -278,7 +272,7 @@
       background: #f8e9c7;
     }
 
-    /* تنسيق اسم الموقع والتعليمات */
+    /* نص الموقع */
     .location-copy {
       display: flex;
       flex-direction: column;
@@ -296,7 +290,7 @@
       color: #dfd1b6;
     }
 
-    /* الورد المتساقط: شكل البتلات ومساحة ظهورها */
+    /* مساحة بتلات الورد الجوري الحمراء */
     .petals {
       position: absolute;
       z-index: 5;
@@ -305,70 +299,59 @@
       pointer-events: none;
     }
 
+    /* شكل البتلة الحمراء */
     .petal {
       position: absolute;
       top: -35px;
       left: var(--left);
       width: var(--size);
-      height: calc(var(--size) * 1.42);
-      border-radius: 85% 0 85% 0;
-      background: linear-gradient(145deg, #f4b6bc 2%, #c95c70 58%, #812b43);
+      height: calc(var(--size) * 1.45);
+      border-radius: 95% 5% 82% 18%;
+      background: linear-gradient(140deg, #ff9a9e 0%, #ed394b 36%, #b5122d 72%, #760d24 100%);
+      box-shadow: inset 2px 1px 3px #ffd0c255, 0 2px 5px #30050b66;
       opacity: 0;
-      filter: drop-shadow(0 2px 2px #140a0a66);
-      animation: fall var(--duration) cubic-bezier(.35, .03, .65, .98) var(--delay) forwards;
+      transform-origin: center;
+      animation: petal-fall var(--duration) ease-in var(--delay) infinite;
     }
 
-    /* ألوان إضافية لبعض البتلات */
-    .petal:nth-child(3n) {
-      background: linear-gradient(145deg, #fff1d7, #d9b978 65%, #9c7047);
+    /* عرق خفيف داخل البتلة */
+    .petal::after {
+      content: "";
+      position: absolute;
+      left: 49%;
+      top: 14%;
+      width: 1px;
+      height: 70%;
+      background: linear-gradient(transparent, #ffd0c277, transparent);
+      transform: rotate(-18deg);
     }
 
-    .petal:nth-child(4n) {
-      background: linear-gradient(145deg, #e6abb0, #a83855 68%, #642536);
-    }
-
-    /* حركة سقوط الورد من أعلى الشاشة */
-    @keyframes fall {
+    /* حركة تساقط البتلات */
+    @keyframes petal-fall {
       0% {
         opacity: 0;
-        transform: translate3d(0, -4vh, 0) rotate(0);
+        transform: translate3d(0, -4vh, 0) rotate(0deg);
       }
 
-      12% {
-        opacity: .92;
+      10% {
+        opacity: .88;
       }
 
-      55% {
-        transform: translate3d(var(--drift), 52vh, 0) rotate(360deg);
+      50% {
+        transform: translate3d(var(--drift), 52vh, 0) rotate(230deg);
       }
 
       88% {
-        opacity: .8;
+        opacity: .78;
       }
 
       100% {
         opacity: 0;
-        transform: translate3d(calc(var(--drift) * -.5), 108vh, 0) rotate(760deg);
+        transform: translate3d(calc(var(--drift) * -.55), 108vh, 0) rotate(520deg);
       }
     }
 
-    /* رابط صورة الباب التي تظهر في البداية */
-    .door-scene {
-      position: absolute;
-      inset: 0;
-      z-index: 3;
-      background:
-        linear-gradient(#160e0870, #160e0844 42%, #160e0877),
-        url("images/WhatsApp Image 2026-11-19 at 8.05.14 PM.jpeg") center / cover;
-      transform-origin: right center;
-      transition:
-        transform 1.55s cubic-bezier(.68, -.04, .29, 1),
-        opacity 1.2s ease,
-        visibility 0s linear 1.55s;
-      box-shadow: 0 0 80px #080504;
-    }
-
-    /* بطاقة البداية فوق صورة الباب */
+    /* بطاقة البداية */
     .gate {
       position: absolute;
       z-index: 4;
@@ -421,13 +404,6 @@
       transform: translateY(-2px);
     }
 
-    /* حركة فتح صورة الباب وإظهار السلم */
-    .experience.opened .door-scene {
-      transform: perspective(1500px) rotateY(-82deg) translateX(28%);
-      opacity: 0;
-      visibility: hidden;
-    }
-
     /* إخفاء بطاقة البداية بعد الضغط */
     .experience.opened .gate {
       opacity: 0;
@@ -435,25 +411,20 @@
       pointer-events: none;
     }
 
-    /* إظهار الدعوة بعد فتح الباب */
+    /* إظهار الدعوة مع بقاء صورة الباب خلفها */
     .experience.opened .reveal {
       opacity: 1;
       transform: none;
     }
 
-    /* تقريب صورة القصر من الداخل */
-    .experience.opened .palace {
-      transform: scale(1.1);
-    }
-
-    /* تحسين العرض على الشاشات القصيرة */
+    /* ضبط الشكل على الشاشات القصيرة */
     @media (max-height: 720px) {
       .content {
         padding: 14px;
       }
 
       .portrait-wrap {
-        width: clamp(130px, 27vh, 180px);
+        width: min(240px, 68vw);
         margin-bottom: 8px;
       }
 
@@ -480,30 +451,29 @@
 </head>
 
 <body>
-  <!-- مساحة الدعوة الرئيسية -->
+  <!-- الصفحة الرئيسية للدعوة -->
   <main class="experience" id="experience">
 
-    <!-- صورة السلم والقصر من الداخل -->
-    <div class="palace" aria-hidden="true"></div>
-
-    <!-- تفاصيل الدعوة التي تظهر بعد فتح الباب -->
+    <!-- تفاصيل الدعوة التي تظهر بعد الضغط -->
     <section class="reveal" aria-label="Ali and Rehab's engagement invitation" aria-hidden="true">
       <div class="content">
 
-        <!-- إطار الصورة -->
+        <!-- إطار صورة العروسين -->
         <div class="portrait-wrap">
-          <!-- رابط صورة علي ورحاب -->
           <img class="portrait" src="ali-rehab.jpeg" alt="Ali and Rehab">
         </div>
 
-        <!-- زخرفة وأسماء العروسين -->
+        <!-- الزخرفة والأسماء -->
         <p class="ornament" aria-hidden="true">❧ ✦ ❧</p>
         <h2 class="names">Ali <span class="heart">♥</span> Rehab</h2>
 
-        <!-- نص الدعوة -->
-        <p class="tagline">We're so happy to share our special day with you. Your presence means the world to us.</p>
+        <!-- الجملتان تظهران في سطرين منفصلين -->
+        <p class="tagline">
+          <span>We're so happy to share our special day with you.</span>
+          <span>Your presence means the world to us.</span>
+        </p>
 
-        <!-- عداد الوقت المتبقي -->
+        <!-- عداد المناسبة -->
         <div class="countdown" aria-label="Countdown to the celebration">
           <div class="count-unit"><strong id="days">000</strong><span>Days</span></div>
           <div class="count-unit"><strong id="hours">00</strong><span>Hours</span></div>
@@ -511,7 +481,7 @@
           <div class="count-unit"><strong id="seconds">00</strong><span>Seconds</span></div>
         </div>
 
-        <!-- تاريخ المناسبة ومكانها -->
+        <!-- تاريخ ومكان المناسبة -->
         <div class="event">
           <div class="event-item">
             <strong id="date">December 12, 2026</strong>
@@ -526,14 +496,12 @@
           </div>
         </div>
 
-        <!-- كارت الخريطة؛ الضغط عليه يفتح موقع الحفلة -->
+        <!-- بطاقة فتح موقع المناسبة -->
         <a class="location-card" id="mapLink" href="https://maps.app.goo.gl/yfvbytpW5KFF2ajUA?g_st=aw" target="_blank" rel="noreferrer" aria-label="Open The Palace location in Google Maps">
-          <!-- رسمة الخريطة والدبوس -->
           <span class="map-art" aria-hidden="true">
             <span class="map-pin"></span>
           </span>
 
-          <!-- عنوان وتعليمات فتح الموقع -->
           <span class="location-copy">
             <strong>Our Location</strong>
             <small>Tap to open in Google Maps ↗</small>
@@ -542,10 +510,7 @@
       </div>
     </section>
 
-    <!-- صورة الباب في البداية، تتحرك لتكشف السلم -->
-    <div class="door-scene" aria-hidden="true"></div>
-
-    <!-- مساحة إنشاء بتلات الورد -->
+    <!-- بتلات الورد الجوري الحمراء -->
     <div class="petals" id="petals" aria-hidden="true"></div>
 
     <!-- بطاقة البداية والزر -->
@@ -557,15 +522,15 @@
       </div>
     </div>
 
-    <!-- ملف الأغنية الموجود بجانب Rehab.html -->
+    <!-- ملف الأغنية الموجود بجانب ملف HTML -->
     <audio id="invitationSong" preload="auto">
       <source src="WhatsApp%20Audio%202026-11-19%20at%2010.16.15%20PM.mpeg" type="audio/mpeg">
     </audio>
   </main>
 
-  <!-- كود التاريخ والعداد والورد وتشغيل الأغنية -->
+  <!-- كود التاريخ والعداد وتشغيل الأغنية والبتلات -->
   <script>
-    // تاريخ المناسبة ورابط المكان.
+    // بيانات التاريخ والمكان والخريطة.
     const invitation = {
       date: "December 12, 2026",
       venue: "The Palace",
@@ -573,18 +538,18 @@
       eventAt: "2026-12-12T00:00:00+02:00"
     };
 
-    // وضع التاريخ والمكان ورابط الخريطة في أماكنها.
+    // وضع التاريخ والمكان والرابط في الصفحة.
     document.getElementById("date").textContent = invitation.date;
     document.getElementById("venue").textContent = invitation.venue;
     document.getElementById("mapLink").href = invitation.map;
 
-    // تحديد موعد نهاية العداد.
+    // تحديد موعد المناسبة للعداد.
     const eventTime = new Date(invitation.eventAt).getTime();
 
     // أسماء خانات العداد.
     const countdownIds = ["days", "hours", "minutes", "seconds"];
 
-    // حساب وعرض الوقت المتبقي.
+    // حساب الوقت المتبقي وتحديث العداد.
     function updateCountdown() {
       const remaining = Math.max(0, eventTime - Date.now());
 
@@ -601,40 +566,40 @@
       });
     }
 
-    // تحديث العداد فورًا ثم مرة كل ثانية.
+    // تحديث العداد فورًا ثم كل ثانية.
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // الوصول إلى الصفحة والزر والأغنية.
+    // الوصول للزر والصفحة والأغنية.
     const experience = document.getElementById("experience");
     const openButton = document.getElementById("openButton");
     const invitationSong = document.getElementById("invitationSong");
 
-    // فتح الدعوة وتشغيل الأغنية عند الضغط على الزر.
+    // فتح الدعوة وتشغيل الأغنية وإنزال البتلات.
     openButton.addEventListener("click", () => {
       experience.classList.add("opened");
       document.querySelector(".reveal").setAttribute("aria-hidden", "false");
 
-      // تشغيل الأغنية بعد الضغط على Open the Invitation.
+      // تشغيل الأغنية بعد الضغط على الزر.
       invitationSong.play().catch(() => {
-        console.log("تأكدي إن ملف الأغنية موجود بجانب Rehab.html");
+        console.log("تأكدي إن ملف الأغنية موجود بجانب ملف HTML.");
       });
 
-      // الورد المتساقط: إنشاء البتلات وإضافتها للشاشة.
+      // إنشاء بتلات الورد الجوري الحمراء.
       const petals = document.getElementById("petals");
 
-      // منع إنشاء بتلات إضافية عند الضغط مرة أخرى.
+      // منع تكرار البتلات عند الضغط أكثر من مرة.
       if (petals.childElementCount) return;
 
-      // إنشاء 38 بتلة بأحجام وألوان وحركات مختلفة.
-      for (let i = 0; i < 38; i++) {
+      // إنشاء 32 بتلة بأحجام ومواعيد نزول مختلفة.
+      for (let i = 0; i < 32; i++) {
         const petal = document.createElement("i");
         petal.className = "petal";
         petal.style.setProperty("--left", `${Math.random() * 100}%`);
-        petal.style.setProperty("--size", `${8 + Math.random() * 11}px`);
-        petal.style.setProperty("--duration", `${4.4 + Math.random() * 3.2}s`);
-        petal.style.setProperty("--delay", `${Math.random() * 2.6}s`);
-        petal.style.setProperty("--drift", `${-55 + Math.random() * 110}px`);
+        petal.style.setProperty("--size", `${9 + Math.random() * 10}px`);
+        petal.style.setProperty("--duration", `${5.5 + Math.random() * 4}s`);
+        petal.style.setProperty("--delay", `${Math.random() * 7}s`);
+        petal.style.setProperty("--drift", `${-60 + Math.random() * 120}px`);
         petals.appendChild(petal);
       }
     });
