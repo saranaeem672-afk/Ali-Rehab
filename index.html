@@ -311,7 +311,7 @@
       box-shadow: inset 2px 1px 3px #ffd0c255, 0 2px 5px #30050b66;
       opacity: 0;
       transform-origin: center;
-      animation: petal-fall var(--duration) ease-in var(--delay) infinite;
+      animation: petal-fall var(--duration) ease-in var(--delay) forwards;
     }
 
     /* عرق خفيف داخل البتلة */
@@ -592,7 +592,7 @@
       if (petals.childElementCount) return;
 
       // إنشاء 32 بتلة بأحجام ومواعيد نزول مختلفة.
-      for (let i = 0; i < 32; i++) {
+      for (let i = 0; i < 10; i++) {
         const petal = document.createElement("i");
         petal.className = "petal";
         petal.style.setProperty("--left", `${Math.random() * 100}%`);
