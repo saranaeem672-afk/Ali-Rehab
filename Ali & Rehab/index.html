@@ -46,7 +46,7 @@
         url("images/WhatsApp Image 2026-11-19 at 8.05.14 PM.jpeg") center / cover fixed;
     }
 
-    /* الدعوة تكون مخفية قبل الضغط */
+    /* تفاصيل الدعوة المخفية قبل الضغط */
     .reveal {
       position: relative;
       z-index: 1;
@@ -62,7 +62,7 @@
       transition: opacity 1.2s ease .3s, transform 1.2s ease .3s;
     }
 
-    /* صندوق محتوى الدعوة */
+    /* صندوق الدعوة */
     .content {
       width: min(560px, 100%);
       padding: 20px;
@@ -93,7 +93,7 @@
       filter: sepia(.12) contrast(1.03);
     }
 
-    /* الزخرفة أعلى الأسماء */
+    /* الزخرفة وأسماء العروسين */
     .ornament {
       font-family: serif;
       color: var(--gold);
@@ -102,7 +102,6 @@
       margin: 0 0 4px;
     }
 
-    /* أسماء العروسين */
     .names {
       margin: 2px 0 8px;
       font-size: clamp(43px, 10vw, 66px);
@@ -112,7 +111,6 @@
       text-shadow: 0 3px 18px #1b0e0b;
     }
 
-    /* القلب بين الاسمين */
     .heart {
       font-size: 22px;
       color: #e3c581;
@@ -128,7 +126,7 @@
       color: #f4ead8;
     }
 
-    /* كل جملة تظهر في سطر مستقل */
+    /* وضع كل جملة في سطر مستقل */
     .tagline span {
       display: block;
     }
@@ -272,7 +270,7 @@
       background: #f8e9c7;
     }
 
-    /* نص الموقع */
+    /* النص بجانب رسمة الخريطة */
     .location-copy {
       display: flex;
       flex-direction: column;
@@ -311,7 +309,7 @@
       box-shadow: inset 2px 1px 3px #ffd0c255, 0 2px 5px #30050b66;
       opacity: 0;
       transform-origin: center;
-      animation: petal-fall var(--duration) ease-in var(--delay) infinite;
+      animation: petal-fall var(--duration) ease-in var(--delay) forwards;
     }
 
     /* عرق خفيف داخل البتلة */
@@ -467,7 +465,7 @@
         <p class="ornament" aria-hidden="true">❧ ✦ ❧</p>
         <h2 class="names">Ali <span class="heart">♥</span> Rehab</h2>
 
-        <!-- الجملتان تظهران في سطرين منفصلين -->
+        <!-- الجملتان في سطرين منفصلين -->
         <p class="tagline">
           <span>We're so happy to share our special day with you.</span>
           <span>Your presence means the world to us.</span>
@@ -481,7 +479,7 @@
           <div class="count-unit"><strong id="seconds">00</strong><span>Seconds</span></div>
         </div>
 
-        <!-- تاريخ ومكان المناسبة -->
+        <!-- التاريخ ومكان المناسبة -->
         <div class="event">
           <div class="event-item">
             <strong id="date">December 12, 2026</strong>
@@ -496,8 +494,8 @@
           </div>
         </div>
 
-        <!-- بطاقة فتح موقع المناسبة -->
-        <a class="location-card" id="mapLink" href="https://maps.app.goo.gl/yfvbytpW5KFF2ajUA?g_st=aw" target="_blank" rel="noreferrer" aria-label="Open The Palace location in Google Maps">
+        <!-- رابط موقع Sky Town على خرائط جوجل -->
+        <a class="location-card" id="mapLink" href="https://www.google.com/maps/place/Sky+Town+-+%D8%B3%D9%83%D8%A7%D9%8A+%D8%AA%D8%A7%D9%88%D9%86%E2%80%AD/@30.9459183,31.2984271,757m/data=!3m2!1e3!4b1!4m6!3m5!1s0x14f7990840b2a4e9:0x5ec3137849e7be34!8m2!3d30.9459183!4d31.2984271!16s%2Fg%2F11q7_0ftz3?entry=ttu&amp;g_ep=EgoyMDI2MTExNy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noreferrer" aria-label="Open Sky Town location in Google Maps">
           <span class="map-art" aria-hidden="true">
             <span class="map-pin"></span>
           </span>
@@ -528,13 +526,13 @@
     </audio>
   </main>
 
-  <!-- كود التاريخ والعداد وتشغيل الأغنية والبتلات -->
+  <!-- كود التاريخ والعداد والأغنية والبتلات -->
   <script>
-    // بيانات التاريخ والمكان والخريطة.
+    // بيانات التاريخ والمكان ورابط الخريطة.
     const invitation = {
       date: "December 12, 2026",
-      venue: "The Palace",
-      map: "https://maps.app.goo.gl/yfvbytpW5KFF2ajUA?g_st=aw",
+      venue: "Sky Town",
+      map: "https://maps.app.goo.gl/wYN2GeV6xGyLnzyK6?g_st=aw",
       eventAt: "2026-12-12T00:00:00+02:00"
     };
 
@@ -591,8 +589,8 @@
       // منع تكرار البتلات عند الضغط أكثر من مرة.
       if (petals.childElementCount) return;
 
-      // إنشاء 32 بتلة بأحجام ومواعيد نزول مختلفة.
-      for (let i = 0; i < 32; i++) {
+      // إنشاء 10 بتلات بأحجام ومواعيد نزول مختلفة.
+      for (let i = 0; i < 10; i++) {
         const petal = document.createElement("i");
         petal.className = "petal";
         petal.style.setProperty("--left", `${Math.random() * 100}%`);
